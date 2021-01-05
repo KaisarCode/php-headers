@@ -87,4 +87,21 @@ Class Headers {
             return substr($df, 0, 2);
         }
     }
+    
+    // Obtain request body
+    static function getHTTPBody() {
+        return file_get_contents("php://input");
+    }
+
+    // Obtain POST and GET vars
+    static function getHTTPVars() {
+        $out = array();
+        foreach ($_POST as $k => $v) {
+            array_push($out, $k);
+        }
+        foreach ($_GET as $k => $v) {
+            array_push($out, $k);
+        }
+        return $out;
+    }
 }

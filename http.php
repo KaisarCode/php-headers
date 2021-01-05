@@ -84,3 +84,20 @@ function getBrowserLang($df = 'en') {
         return substr($df, 0, 2);
     }
 }
+
+// Obtain request body
+function getHTTPBody() {
+    return file_get_contents("php://input");
+}
+
+// Obtain POST and GET vars
+function getHTTPVars() {
+    $out = array();
+    foreach ($_POST as $k => $v) {
+        array_push($out, $k);
+    }
+    foreach ($_GET as $k => $v) {
+        array_push($out, $k);
+    }
+    return $out;
+}

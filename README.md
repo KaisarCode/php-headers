@@ -1,2 +1,2 @@
-# HTTP Headers
-[php] Set some common HTTP headers.
+# HTTP
+[php] HTTP related methods.
