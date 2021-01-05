@@ -74,3 +74,13 @@ function clearBrowserCache() {
     @header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
     @header("Cache-Control: post-check=0, pre-check=0", false);
 }
+
+// Get browser lang
+function getBrowserLang($df = 'en') {
+    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $al = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        return substr($al, 0, 2);
+    } else { 
+        return substr($df, 0, 2);
+    }
+}
