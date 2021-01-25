@@ -1,7 +1,7 @@
 <?php
 namespace KC;
 
-Class Headers {
+Class Http {
     
     // Allow origin
     static function allowOrigin($origin = '*') {
