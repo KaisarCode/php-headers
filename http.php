@@ -15,6 +15,11 @@ function setHeaderHtml($charset = 'utf-8') {
     @header("Content-Type: text/html; charset=$charset");
 }
 
+// Set response XML
+function setHeaderXml($charset = 'utf-8') {
+    @header("Content-Type: text/xml; charset=$charset");
+}
+
 // Set response Text
 function setHeaderText($charset = 'utf-8') {
     @header("Content-Type: text/plain; charset=$charset");
