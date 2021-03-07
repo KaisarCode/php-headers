@@ -61,6 +61,17 @@ function redirect($url, $is301 = false) {
     @header("Location: $url");
 }
 
+// Force HTTPS
+static forceHttps() {
+    if(
+    isset($_SERVER['HTTPS'])&&
+    $_SERVER['HTTPS']!="on"){
+    $redir = "https://".
+    $_SERVER['HTTP_HOST'].
+    $_SERVER['REQUEST_URI'];
+    header("Location:$redir");}
+}
+
 // Download zip
 function downloadZip($url) {
     $nm = basename($url);
