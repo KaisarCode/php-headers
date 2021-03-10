@@ -66,13 +66,16 @@ Class Http {
     
     // Force HTTPS
     static function forceHttps() {
-        if(
-        isset($_SERVER['HTTPS'])&&
-        $_SERVER['HTTPS']!="on"){
-        $redir = "https://".
-        $_SERVER['HTTP_HOST'].
-        $_SERVER['REQUEST_URI'];
-        header("Location:$redir");}
+        if (array_key_exists
+        ('HTTPS', $_SERVER) &&
+        (empty($_SERVER['HTTPS']) ||
+        $_SERVER['HTTPS']==="off")){
+            $redir = "https://".
+            $_SERVER['HTTP_HOST'].
+            $_SERVER['REQUEST_URI'];
+            header("Location:$redir");
+            exit;
+        }
     }
     
     // Download zip
