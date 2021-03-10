@@ -62,14 +62,17 @@ function redirect($url, $is301 = false) {
 }
 
 // Force HTTPS
-static forceHttps() {
-    if(
-    isset($_SERVER['HTTPS'])&&
-    $_SERVER['HTTPS']!="on"){
-    $redir = "https://".
-    $_SERVER['HTTP_HOST'].
-    $_SERVER['REQUEST_URI'];
-    header("Location:$redir");}
+function forceHttps() {
+    if (array_key_exists
+    ('HTTPS', $_SERVER) &&
+    (empty($_SERVER['HTTPS']) ||
+    $_SERVER['HTTPS']==="off")){
+        $redir = "https://".
+        $_SERVER['HTTP_HOST'].
+        $_SERVER['REQUEST_URI'];
+        header("Location:$redir");
+        exit;
+    }
 }
 
 // Download zip
