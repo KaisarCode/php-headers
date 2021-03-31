@@ -1,6 +1,4 @@
 <?php
-namespace KC;
-
 Class Http {
     
     // Allow origin
